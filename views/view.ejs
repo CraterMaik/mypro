@@ -1,0 +1,83 @@
+<html lang="es">
+  <head>
+     <%- include('_head'); -%>
+  </head>
+  
+  <body class="body-index">
+    <%- include('header'); -%>
+    <div class="container-fluid">
+      <section class="body-header">
+        <h1>
+          <%= datoProyecto.name_pro %>
+        </h1>
+        <h4>
+          <%= datoProyecto.info_pro %>
+        </h4>
+        <div>
+          Creado por: <a href="/u/<%= datoProyecto.id_usuario %>"><span class="badge badge-warning"><%= apiDiscord.username%>#<%= apiDiscord.discriminator %></span></a> 
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="row justify-content-md-center">
+          
+            <div class="col col-lg-3">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  
+                  <h6 class="card-subtitle mb-2 text-muted">Cantidad de visitas</h6>
+                  <p class="card-text"><%= statsProyecto.countViews %></p>
+                
+                </div>
+              </div>
+            </div>
+            <div class="col col-lg-3">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  
+                  <h6 class="card-subtitle mb-2 text-muted">Likes</h6>
+                  <p class="card-text"><%= statsProyecto.countLikes %></p>
+                
+                </div>
+              </div>
+            </div>
+             <div class="col col-lg-3">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  
+                  <h6 class="card-subtitle mb-2 text-muted">Otros</h6>
+                  <p class="card-text">0</p>
+                
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          <br>
+          <div class="row mt-2">
+            <div class="col-12 d-flex justify-content-center btn-proyecto">
+              <a class="btn btn-success" target="_blank" href="<%= datoProyecto.url_pro %>" role="button">Ver</a>
+              
+              <a class="btn btn-warning"  href="<%= verficadorLikes === 'si' ? '/proyectos/unlike/'+datoProyecto.id_pro  : '/proyectos/like/'+datoProyecto.id_pro%> " role="button"><%= textLikes %></a>
+            </div>
+            
+          </div>
+          
+        </div>
+      </section>
+    
+    </div>
+    
+      
+    <footer>
+    </footer>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  </body>
+</html>

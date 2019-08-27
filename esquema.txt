@@ -1,0 +1,19 @@
+-------------------
++ Tabla usuarios
+-------------------
+-id_usuario TEXT
+-info_usuario TEXT
+
+-------------------
+
+===================
+
+-------------------
++ Tabla Proyectos
+-------------------
+- id_proyecto INTEGER AUTOINCREMENT
+- id_usuario TEXT
+- name_proyecto TEXT
+- url_proyecto TEXT
+- info_proyecto TEXT
+-------------------

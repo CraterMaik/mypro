@@ -1,0 +1,30 @@
+
+<nav class="navbar nav-index ">
+   
+  <a class="navbar-brand" href="/">
+    <img src="https://i.imgur.com/vU6tN9W.png" width="110" height="30" alt="">
+  </a>
+
+  <ul class="nav justify-content-center font-weight-bolder">
+
+    <li class="nav-item ">
+      <a class="nav-links" href="/">INICIO</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-links" target="_blank" href="https://portalmybot.com/discord/" >DISCORD</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-links" target="_blank" href="https://portalmybot.com/">PORTAL</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-links" href="<%= login === 'si' ? '/perfil' : '/login' %>"><%= textLogin %></a>
+    </li>
+    <% if(login === 'si') { %>
+    <li class="nav-item ">
+      <a class="nav-links btn btn-danger" href="/salir">SALIR</a>
+    </li>
+    <% } %>
+
+  </ul>
+</nav>
+

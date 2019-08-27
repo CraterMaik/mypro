@@ -1,0 +1,109 @@
+
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <%- include('_head'); -%>
+  </head>
+  
+  <body>
+    <%- include('header'); -%>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 content-banner">
+          
+        </div>
+        <div class="col-12 content-perfil">
+          <div class="container">
+            <div class="row">
+              <div class="col-8">
+                <div class="d-flex align-items-center intro">
+                  
+                  <img src="https://cdn.discordapp.com/avatars/<%= userBD.id_usuario %>/<%= apiDatos.avatar %>.png" class="rounded-circle img-thumbnail">  
+                  <div class="username">
+                    <%= apiDatos.username %> <br><span class="discrim">#<%= apiDatos.discriminator %></span> 
+                  </div>
+                </div>
+              
+                
+              </div>
+              
+              <div class="col-12"> 
+                
+                <p class="bio-perfil">
+                  Bio: <%= userBD.info_usuario %>
+                </p>
+                <p class="stast-perfil">
+                  Estadisticas: <br>
+                  <span class="badge badge-danger">Proyectos: <%= countPro.count %></span>
+                  <span class="badge badge-warning">Likes: <%= countLikes.count %></span>
+                </p>
+              </div>
+            
+            </div>
+          </div>
+          
+        </div>
+       
+      </div>
+      <div class="row">
+        
+        <div class="col-12">
+          <div class="container content-project">
+            <div class="t-center">
+              <div>
+                </div>
+            
+              <% if(!proyecto) {%>
+              <p>
+                Sin proyectos registados.
+              </p>
+               <% } else { %>
+              <div class="list-group list-mypro">
+                  <% proyecto.map(dato => { %> 
+                    <div class="list-group-item items list-group-item-action">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1"><%= dato.name_pro %></h5>
+
+                      </div>
+                      <p class="mb-1"><%= dato.info_pro %></p>
+                      
+                      <div class="d-flex justify-content-end">
+                        <div class="btn-config">
+                            <a href="/proyectos/v/<%=dato.id_pro%>" class="btn btn-success">Ver</a>
+                          </div>
+                          
+                      </div>
+                      
+                      
+                    </div>
+                  <% }) %>
+
+                </div>
+                
+            
+            
+                
+                
+              </div>
+             
+              
+                
+              </ul>
+              
+              <% }%>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

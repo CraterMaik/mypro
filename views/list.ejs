@@ -1,0 +1,96 @@
+<html lang="es">
+  <head>
+     <%- include('_head'); -%>
+  </head>
+  
+  <body class="body-index">
+    <%- include('header'); -%>
+    
+    <div class="container-fluid">
+
+      <section>
+        <div class="container">
+          
+          <div class="container-list">
+            <div class="body-top">
+              <h5 class="mt-5 mb-4 font-weight-bolder">
+                 Proyectos destacados
+              </h5>
+              <div class="row">
+                
+                <% randomPro.map(list => { %>
+                <div class="col-3">
+                  
+                  <div class="card card-list" >
+                    <img src="https://picsum.photos/id/<%= numRandom(50, 80) %>/300/200" class="card-img-top" alt="...">
+                    <div class="card-body card-body-list">
+                      <h5 class="card-title text-corte"><i class="fas fa-award"></i> <%= list.name_pro %> </h5>
+                      
+                      <a href="./v/<%= list.id_pro %>" class="btn btn-info"><i class="fas fa-stream"></i> Ver</a>
+                    </div>
+                  </div>
+                </div>
+                <% }) %>
+              </div>
+            </div>
+            <div class="row mt-5">
+              <div class="col-12">
+                <h5 class="mb-4 font-weight-bolder">
+                  Mas proyectos
+                </h5>
+                <div class="list-group list-mypro">
+                  <% list.map(dato => { %> 
+                   <ul class="list-group-item items list-group-item-action">
+                     <a href="./v/<%= dato.id_pro %>" class="items list-group-item-action">
+                       <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1 font-weight-bold"><i class="fas fa-project-diagram"></i> <%= dato.name_pro %></h5>
+                          
+                      </div>
+                      <p class="mb-1"><%= dato.info_pro %></p>
+                      
+
+                    </a>
+                    <% if(ApiDiscord.users.get(dato.id_usuario)){%>
+                           <small>
+                             <img src="<%= ApiDiscord.users.get(dato.id_usuario).displayAvatarURL %>" alt="..." width="22" height="22" class="rounded-circle border border-info">
+                             <a href="../u/<%= dato.id_usuario %>" class="items items-list ">
+                                <%= ApiDiscord.users.get(dato.id_usuario).username %>
+                             </a>
+                              
+                           </small>
+                          <% } else {%>
+                            <small>
+                             <img src="https://discordapp.com/assets/0e291f67c9274a1abdddeb3fd919cbaa.png" alt="..." width="22" height="22" class="rounded-circle border border-info">
+                             <a href="../u/<%= dato.id_usuario %>" class="items items-list">
+                                user_<%=dato.id_usuario%>
+                             </a>
+                            </small>
+                          <% } %>
+                  </ul>
+                    
+                  <% }) %>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+        </div>
+      </section>
+    
+    </div>
+    
+      
+    <footer>
+    </footer>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  </body>
+</html>
